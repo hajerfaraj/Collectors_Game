@@ -1,3 +1,4 @@
+//called when image is clicked to hide img WIP
 function found(item){
     
     var  name=item.src;
@@ -12,14 +13,14 @@ function found(item){
         }item.style="Display:none;";
 }
 function timer(){
-
+//TODO timer 
 }
 function restartButton(){
-
+//TODO
 }
 function winCheck(){
-
+//TODO
 }
 function won(){
-
+//TODO
 }
