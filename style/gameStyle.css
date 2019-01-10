@@ -13,17 +13,6 @@
 	border: 10px solid transparent;
 	border-image: url(../images/decoration/Wooden_frame.png) 10% round;
 }
-#systemItems{
-	position: relative;
-	top:0;
-	bottom:0;
-	left: 0;
-	right:0;
-	background-color:pink;
-	padding:0;
-	margin:0;
-	z-index:10;
-}
 #item_pane{
 	margin-top:0;
 	left:0;
@@ -158,8 +147,8 @@ li img{
 	width: 25%;
 	max-height: 80%;
 	position: absolute;
-	left:5%;
-	top:35%;
+	left:3%;
+	top:43%;
 }
 #mid{
 	
@@ -167,5 +156,5 @@ li img{
 	height: 30%;
 	position: absolute;
 	left:25%;
-	top:55%;
+	top:65%;
 }

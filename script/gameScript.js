@@ -38,11 +38,17 @@ function buildItems() {
 		var con=document.getElementById('stuff');
 		var img=document.createElement('img');
 		var ul=document.getElementById('itemList');
-		var li;
-		var node;
-		var name;
-	  for (var i=0;i<5;i++){
+		var li, node, name, list;
+		//no repeat random item
 		index=Math.floor(Math.random() * itemArr.length) + 0; 
+	    for (var i=0;i<3;i++){
+		list=ul.getElementsByTagName('li');
+		for (var j=0;j<list.length; j++){
+			if (list[j].innerText==itemArr[index]){
+				index=Math.floor(Math.random() * itemArr.length); 
+				j=-1;
+			}
+		}
 		//random position 
 		ranY=Math.floor(Math.random() * 95) + 0;
 		ranX=Math.floor(Math.random() * 95) + 0;
@@ -51,10 +57,10 @@ function buildItems() {
 			img.src="images/items/item_"+itemArr[index]+".png";
 		else
 			img.src="images/items/item_"+itemArr[index]+"2.png";
-		//TODO prevent same item from appearing twice
 		//style and add selected image (with random coordinates)
-		img.style="position:absolute; top:"+ranX+"%; left:"+ranY+"%; height:100px; width:100px; display:block;";
+		img.style="position:absolute; top:"+ranX+"%; left:"+ranY+"%; height:100px; width:100px; transform: rotate("+rotateItem()+"deg);";
 		node=img.cloneNode();
+		node.addEventListener("click", function(){found(this)}, false);
 		con.appendChild(node);
 		//add item shadow to item pane
 		li=document.createElement('li');
@@ -70,5 +76,7 @@ function buildItems() {
 	}
 	
 function rotateItem(){
-	//TODO: item rotation
-}
+	var rotVal=[0,45,90,135,180,225,270];
+	var index=Math.floor(Math.random() * rotVal.length);
+	return rotVal[index];
+	}
