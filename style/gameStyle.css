@@ -6,12 +6,13 @@
     right: 0;
     bottom: 0;
     left: 0;
-	height: 690px;
+	height: 590px;
 	width:870px;
 	overflow: hidden;
 	padding:15px;
 	border: 10px solid transparent;
 	border-image: url(../images/decoration/Wooden_frame.png) 10% round;
+	background-size: 900px 620px;
 }
 #item_pane{
 	margin-top:0;
@@ -31,7 +32,8 @@
 	position: absolute;
 	z-index:10;
 }
-#reset{
+#restartSign{
+	height:35%;
 	margin:0;
 	bottom:-15px;
 	right: 3%;
@@ -114,7 +116,7 @@ li img{
 	top:15%;
 	bottom:15%;
 	left:20%;
-	right:15%;
+	right:20%;
 
 }
 #furniture{
@@ -157,4 +159,13 @@ li img{
 	position: absolute;
 	left:25%;
 	top:65%;
+}
+.wonItem{
+	top:50%!important;
+	left:50%!important; 
+	max-height:100%!important;
+	max-width:100%!important; 
+	z-index:6!important;
+    filter: drop-shadow(2px 2px 2px rgba(173,255,47,0.3))drop-shadow(-2px 2px 2px rgba(173,255,47,0.3))
+         drop-shadow(2px -2px 2px rgba(173,255,47,0.3))drop-shadow(-2px -2px 2px rgba(173,255,47,0.3));
 }

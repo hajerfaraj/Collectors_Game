@@ -7,11 +7,11 @@
 <!-- encases all of the game objects-->
 <div id="content" >
 
-<img id="item_pane" src="images/decoration/item_pane.png"/>
-<img id="timer" src="images/decoration/timer.png"/>
-<img id="reset" src="images/decoration/reset.png"/>
-<div id="timerDisplay">00:00</div>
-<button id="restartBtn">&#8635;</button>
+<img id="item_pane" class="gameControls" src="images/decoration/item_pane.png"/>
+<img id="timer" class="gameControls" src="images/decoration/timer.png"/>
+<img id="restartSign" src="images/decoration/reset.png"/>
+<div id="timerDisplay" class="gameControls">00:00</div>
+<button id="restartBtn" class="gameControls">&#8635;</button>
 
 <ul id="itemList">
 </ul>
@@ -27,7 +27,7 @@
 </div>
 
 </div>
-//game logic must preceed game script
+<!--game logic must preceed game script-->
 <script src="script/gameLogic.js"></script>
 <script src="script/gameScript.js"></script>
 </body>
