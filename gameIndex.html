@@ -2,16 +2,19 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="style/gameStyle.css">
+<script src="jquery-3.3.1.min.js"></script>
 </head>
 <body onload="buildImage();">
 <!-- encases all of the game objects-->
 <div id="content" >
-
+<div id="startScreen" class="start">
+    <button id="startButton" class="start" onclick="play()">START</button>
+</div>
 <img id="item_pane" class="gameControls" src="images/decoration/item_pane.png"/>
 <img id="timer" class="gameControls" src="images/decoration/timer.png"/>
 <img id="restartSign" src="images/decoration/reset.png"/>
 <div id="timerDisplay" class="gameControls">00:00</div>
-<button id="restartBtn" class="gameControls">&#8635;</button>
+<button id="restartBtn" class="gameControls" onclick="restartButton();">&#8635;</button>
 
 <ul id="itemList">
 </ul>
