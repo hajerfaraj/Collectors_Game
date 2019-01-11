@@ -1,3 +1,10 @@
+function play(){
+    var start=document.getElementById('startScreen');
+    start.style="display:none";
+    start=document.getElementById('startButton');
+    start.style="display:none";
+    timer(0,0);
+}
 //called when image is clicked to hide img WIP
 function found(item){
     var  name=item.src;
@@ -22,11 +29,30 @@ function found(item){
         }, 1300);
         
 }
-function timer(){
-//TODO timer 
+var watch;
+function timer(sec, min){
+    var seconds = sec, minutes = min; 
+    var timerText=document.getElementById("timerDisplay");
+    watch= setInterval(function(){
+        seconds++;
+        if (seconds >= 60) {
+            seconds = 0;
+             minutes++;
+        }
+        timerText.innerHTML=(minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") +
+         ":" + (seconds > 9 ? seconds : "0" + seconds);
+    }, 1000);
 }
 function restartButton(){
-//TODO
+    var ul=document.getElementById('itemList'), stuff=document.getElementById('stuff');
+    while( ul.hasChildNodes() ){
+            ul.removeChild(ul.lastChild);
+    }
+    while( stuff.hasChildNodes() ){
+        stuff.removeChild(stuff.lastChild);
+    }
+    document.getElementById('timerDisplay').innerHTML="00:00";
+    buildImage();
 }
 function winCheck(){
     var ul=document.getElementById('itemList');
@@ -36,13 +62,17 @@ function winCheck(){
             if ( list[j].style.textDecoration!="line-through" ) {
                 break;
             }
-            else{
-                if(j==list.length-1)
-                    won();
+            else if(j==list.length-1){
+                won();
             }     
         }
 }
 //TODO
 function won(){
+    clearInterval(watch);
     alert("won");
+}
+//TODO 
+function pause(){
+
 }
