@@ -14,6 +14,25 @@
 	border-image: url(../images/decoration/Wooden_frame.png) 10% round;
 	background-size: 900px 620px;
 }
+#startScreen{
+	background-color: green;
+	z-index:12;
+	top:0;left:0;
+	bottom:0;right:0;
+	margin:0;
+	padding:0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	position: absolute;
+}
+#startButton{
+	font-size: 40px;
+	font-family: Verdana;
+	left:40%;
+	top:40%;
+	position: absolute;
+}
 #item_pane{
 	margin-top:0;
 	left:0;
@@ -161,8 +180,9 @@ li img{
 	top:65%;
 }
 .wonItem{
-	top:50%!important;
-	left:50%!important; 
+	position:absolute;
+	top:55px!important;
+	left:80px!important;
 	max-height:100%!important;
 	max-width:100%!important; 
 	z-index:6!important;
