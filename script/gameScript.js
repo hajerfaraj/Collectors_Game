@@ -1,8 +1,9 @@
 
 var index = 0;
 //items to be displayed
-var itemArr=['cat', 'hat', 'cup', 'ball', 'bag', 'dice', 'flower',  'icecream',
-				'elephant', 'teddy', 'glasses', 'car'];
+var itemArr=['cat','hat','cup','ball','bag','dice','flower','icecream','phone','radio','money','mask',
+			'plant','elephant','teddy','glasses','car','fish','ring','watch','key','statue','camera','ship',
+			'bowl','pillow','trunk','paper','book','picture','crown','lamp','vase','helmet','candle','jewel'];
 
 //generate random background on startup
 function buildImage() {
