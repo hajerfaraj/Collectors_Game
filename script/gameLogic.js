@@ -44,15 +44,21 @@ function timer(sec, min){
     }, 1000);
 }
 function restartButton(){
-    var ul=document.getElementById('itemList'), stuff=document.getElementById('stuff');
+    var ul=document.getElementById('itemList'), stuff=document.getElementById('stuff'),
+        camo=document.getElementById('camo');
     while( ul.hasChildNodes() ){
             ul.removeChild(ul.lastChild);
     }
     while( stuff.hasChildNodes() ){
         stuff.removeChild(stuff.lastChild);
     }
+    while( camo.hasChildNodes() ){
+        camo.removeChild(camo.lastChild);
+    }
     document.getElementById('timerDisplay').innerHTML="00:00";
-    buildImage();
+    clearInterval(watch);
+    timer(0,0);
+    init();
 }
 function winCheck(){
     var ul=document.getElementById('itemList');
@@ -74,5 +80,6 @@ function won(){
 }
 //TODO 
 function pause(){
-
+    var onOff=true;
+    
 }
