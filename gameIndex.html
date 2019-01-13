@@ -2,11 +2,15 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="style/gameStyle.css">
-<script src="jquery-3.3.1.min.js"></script>
+<script src="script/jquery-3.3.1.min.js"></script>
 </head>
-<body onload="buildImage();">
+<body onload="init();">
 <!-- encases all of the game objects-->
 <div id="content" >
+<div id="loaderBg">
+<div id="loader"></div>
+<p>Loading...</p>
+</div>
 <div id="startScreen" class="start">
     <button id="startButton" class="start" onclick="play()">START</button>
 </div>
@@ -26,6 +30,7 @@
 <img src="" id="mid">
 <img src="" id="addR">
 </div>
+<div id="camo"></div>
 <div id="stuff"></div>
 </div>
 
