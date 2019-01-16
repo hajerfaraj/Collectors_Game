@@ -108,8 +108,8 @@ body{
 	background-color: rgba(0,0,0,0);
 	border: black;
 	position: absolute;
-	right:8%;
-	bottom: 20%;
+	right:7%;
+	bottom: 19%;
 	border-radius: 50%;
 	text-align: center;
 	padding: 4px 7px;
@@ -119,14 +119,29 @@ body{
 	color: white;
 	z-index:10;
 }
-#restartBtn:hover{
+#restartBtn:hover,#pauseBtn:hover{
 	background-color: rgba(0,0,0,0.3);
 	font-size:40px;
 }
-#restartBtn:active{
+#restartBtn:active,#pauseBtn:active{
 	transform: translateY(4px);
 	transform: rotate(180deg);
 	box-shadow: 0 6px 5px black inset;
+}
+#pauseBtn{
+	background-color: rgba(25,10,25,0.5);
+	border: black;
+	position: absolute;
+	right:8%;
+	top: 7%;
+	border-radius: 50%;
+	text-align: center;
+	padding: 4px 10px 4px 10px;
+	font-weight:bolder;
+	font-size: 35px;
+	box-shadow: 0 6px 5px black;
+	color: white;
+	z-index:10;
 }
 #timerDisplay{
 	max-width: 20%;
@@ -174,20 +189,12 @@ li img{
 }
 #stuff{
 	position: absolute;
-	z-index:6;
-	top:15%;
-	bottom:15%;
-	left:20%;
-	right:20%;
-
-}
-#camo{
-	position: absolute;
 	z-index:5;
 	top:15%;
 	bottom:15%;
 	left:20%;
 	right:20%;
+
 }
 #furniture{
 	z-index:4;
@@ -236,7 +243,42 @@ li img{
 	left:80px!important;
 	max-height:100%!important;
 	max-width:100%!important; 
-	z-index:7!important;
+	z-index:8!important;
     filter: drop-shadow(2px 2px 2px rgba(173,255,47,0.3))drop-shadow(-2px 2px 2px rgba(173,255,47,0.3))
          drop-shadow(2px -2px 2px rgba(173,255,47,0.3))drop-shadow(-2px -2px 2px rgba(173,255,47,0.3));
+}
+#winDialogue{
+	display:none;
+	position: absolute;
+	z-index:11;
+	top:15%;
+	bottom:15%;
+	left:20%;
+	right:20%;
+	background:linear-gradient(-205deg, rgba(200,100,200,0.8)25%, rgba(255,255,255,0.5)65%);
+	border: solid 3px black;
+	border-radius: 10px;
+	align-content: center;
+	font-size: 35px;
+	font-family: Courier New, Courier, monospace;
+	font-weight: bolder;
+	text-align: center;	
+	text-shadow: 2px 2px 2px  black;
+}
+#winDialogue button{
+	background-color: purple;
+	box-shadow: 1px 1px 5px 3px rgb(150,100,150) inset,-4px -4px 1px 3px rgb(50,10,50) inset;
+	border-style: none;
+	border-radius: 10px;
+	padding: 20px;
+	font-size: 20px;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#winDialogue button:hover{
+	background-color: rgb(90,4,90);
+	color: white;
+}
+#winDialogue button:active{
+	box-shadow: 1px 1px 5px 4px rgb(50,10,50) inset,-4px -4px 1px 3px black inset;
+	transform: translateX(2px);
 }

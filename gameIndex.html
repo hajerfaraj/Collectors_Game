@@ -2,11 +2,13 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="style/gameStyle.css">
+<link rel="stylesheet" type="text/css" href="style/popUpStyle.css">
+<link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
 <script src="script/jquery-3.3.1.min.js"></script>
 </head>
 <body onload="init();">
 <!-- encases all of the game objects-->
-<div id="content" >
+<div id="content" tabindex="-1" >
 <div id="loaderBg">
 <div id="loader"></div>
 <p>Loading...</p>
@@ -14,11 +16,20 @@
 <div id="startScreen" class="start">
     <button id="startButton" class="start" onclick="play()">START</button>
 </div>
+<div class="popup" id="winDialogue">
+    <p>You Won!<br/>Your time is:<br/><span id="totTime"></span><br/>Thank you for playing!!</p>
+    <button id="log">Login</button> or <button id="reg">Register</button>
+   <span class="close">
+    <i class="fa fa-close"></i>
+  </span>
+    <br/>To add your time to our <u>Top 50</u> list.
+</div>
 <img id="item_pane" class="gameControls" src="images/decoration/item_pane.png"/>
 <img id="timer" class="gameControls" src="images/decoration/timer.png"/>
 <img id="restartSign" src="images/decoration/reset.png"/>
 <div id="timerDisplay" class="gameControls">00:00</div>
 <button id="restartBtn" class="gameControls" onclick="restartButton();">&#8635;</button>
+<button id="pauseBtn" class="gameControls" onClick="pause();">||</button>
 
 <ul id="itemList">
 </ul>
@@ -30,13 +41,16 @@
 <img src="" id="mid">
 <img src="" id="addR">
 </div>
-<div id="camo"></div>
 <div id="stuff"></div>
 </div>
-
+<div id="winDialogue">
+    <p>You Won!<br/>Your time is:<br/><span id="totTime"></span><br/>Thank you for playing!!</p>
+    <button id="log">Login</button> or <button id="reg">Register</button>
+</div>
 </div>
 <!--game logic must preceed game script-->
-<script src="script/gameLogic.js"></script>
-<script src="script/gameScript.js"></script>
+<script type="text/javascript" src="script/popUpScript.js"></script>
+<script type="text/javascript" src="script/gameLogic.js"></script>
+<script type="text/javascript" src="script/gameScript.js"></script>
 </body>
 </html>
