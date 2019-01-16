@@ -31,7 +31,7 @@ function found(item){
 }
 var watch;
 function timer(sec, min){
-    var seconds = sec, minutes = min; 
+    var seconds = parseInt(sec), minutes = parseInt(min); 
     var timerText=document.getElementById("timerDisplay");
     watch= setInterval(function(){
         seconds++;
@@ -44,18 +44,16 @@ function timer(sec, min){
     }, 1000);
 }
 function restartButton(){
-    var ul=document.getElementById('itemList'), stuff=document.getElementById('stuff'),
-        camo=document.getElementById('camo');
+    var ul=document.getElementById('itemList'), stuff=document.getElementById('stuff');
     while( ul.hasChildNodes() ){
             ul.removeChild(ul.lastChild);
     }
     while( stuff.hasChildNodes() ){
         stuff.removeChild(stuff.lastChild);
     }
-    while( camo.hasChildNodes() ){
-        camo.removeChild(camo.lastChild);
-    }
+    clicks=0;onOff=true;
     document.getElementById('timerDisplay').innerHTML="00:00";
+    document.getElementById("winDialogue").style.display="none";
     clearInterval(watch);
     timer(0,0);
     init();
@@ -77,9 +75,36 @@ function winCheck(){
 function won(){
     clearInterval(watch);
     alert("won");
+    //document.getElementsByClassName(".popup")[0].style.display="block";
+    wonDialogue();
+    var timeText=document.getElementById("timerDisplay").innerHTML;alert(timeText);
+    var showTime=document.getElementById("totTime").innerHTML=timeText;
 }
 //TODO 
+var onOff=true;
+//$("#content").focusin(onOff=true,pause());
+//$("#content").focusout(onOff=false,pause());
 function pause(){
-    var onOff=true;
-    
+    var str;
+    //alert(onOff);
+    if (onOff){
+        onOff=false;
+        clearInterval(watch);
+    }
+    else{
+        onOff=true;
+        str=document.getElementById('timerDisplay').innerHTML;
+        timer(str[3]+str[4],str[0]+str[1]);
+    }
+}
+var clicks=0;
+function penalty(){
+    if(clicks<2){
+        clicks+=1;
+        alert(clicks);
+    }
+    else{
+        alert('warning');
+        clicks=0;
+    }
 }
