@@ -10,7 +10,9 @@ function init(){
 	buildImage();
 	buildRoom();
 	buildItems();
-	window.load=load();
+	$(document).ready(function(){
+		$(window).load(load());
+	});
 }
 function load(){
 	setTimeout(function() {$("#loader").hide();$("#loaderBg").hide();}, 1000);
@@ -69,7 +71,7 @@ function buildItems() {
 		//style and add selected image (with random coordinates)
 			s=resizeItem();
 			img.style="position:absolute; top:"+ranX+"%; left:"+ranY+"%; height:"+s+ "px;width:"+s
-				 +"px;transform: rotate("+rotateItem()+"deg);";
+				 +"px;transform: rotate("+rotateItem()+"deg); z-index:7;";
 			if (i<3)
 				 createItems(img);
 			else
@@ -99,7 +101,8 @@ function createItems(img){
 function camoItems(img){
 	//add secondary item
 	var node=img.cloneNode(),
-	con=document.getElementById('camo');
+	con=document.getElementById('stuff');
+	node.style.zIndex="6";
 	node.addEventListener("click",penalty,false);
 	con.appendChild(node);
 }
@@ -113,6 +116,4 @@ function resizeItem(){
 	var index=Math.floor(Math.random() * sizeVal.length);
 	return sizeVal[index];
 	}
-function penalty(){
-	//TODO time penalty on 3 random clicks
-}
+
