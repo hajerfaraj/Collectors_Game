@@ -50,7 +50,7 @@ function buildItems() {
 		ul=document.getElementById('itemList'),
 		li, node, name, list,s;
 		//no repeat random item
-	    for (var i=0;i<5;i++){
+	    for (var i=0;i<25;i++){
 			index=Math.floor(Math.random() * itemArr.length) + 0;
 			list=ul.getElementsByTagName('li');
 			for (var j=0;j<list.length; j++){
@@ -72,7 +72,7 @@ function buildItems() {
 			s=resizeItem();
 			img.style="position:absolute; top:"+ranX+"%; left:"+ranY+"%; height:"+s+ "px;width:"+s
 				 +"px;transform: rotate("+rotateItem()+"deg); z-index:7;";
-			if (i<3)
+			if (i<10)
 				 createItems(img);
 			else
 		 	 	camoItems(img);
