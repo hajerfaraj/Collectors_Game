@@ -14,11 +14,15 @@ function init(){
 		$(window).load(load());
 	});
 }
+//shorhand version to be reused throughout
+function random(min,max){
+ 	return Math.floor(Math.random() * (max-min) + min);
+}
 function load(){
 	setTimeout(function() {$("#loader").hide();$("#loaderBg").hide();}, 1000);
 }
 function buildImage() {
-	  index=Math.floor(Math.random() * 11) + 1;
+	  index= random(1,11);
 	  var con=document.getElementById('content');
 	  con.style.backgroundImage="url(images/backgrounds/bg"+index+".jpg)";
     }
@@ -26,19 +30,19 @@ function buildImage() {
 //adds random furniture to room
 function buildRoom(){
 	var thing;
-	index=Math.floor(Math.random() * 4) + 1;
+	index= random(1,4);
 	thing=document.getElementById("chan");
 	thing.src="images/furniture/chan"+index+".png";
 
-	index=Math.floor(Math.random() * 5) + 1;
+	index= random(1,5);
 	thing=document.getElementById("mid");
 	thing.src="images/furniture/tab"+index+".png";
 
-	index=Math.floor(Math.random() * 6) + 1;
+	index= random(1,6);
 	thing=document.getElementById("addL");
 	thing.src="images/furniture/add"+index+".png";
 
-	index=Math.floor(Math.random() * 6) + 1;
+	index= random(1,6);
 	thing=document.getElementById("addR");
 	thing.src="images/furniture/add"+index+".png";
 }
@@ -51,18 +55,18 @@ function buildItems() {
 		li, node, name, list,s;
 		//no repeat random item
 	    for (var i=0;i<25;i++){
-			index=Math.floor(Math.random() * itemArr.length) + 0;
+			index= random(0,itemArr.length);
 			list=ul.getElementsByTagName('li');
 			for (var j=0;j<list.length; j++){
 				if (list[j].innerText==itemArr[index]){
-					index=Math.floor(Math.random() * itemArr.length); 
+					index=random(0, itemArr.length); 
 					j=-1;
 				}
 			}
 		//random position 
 		//TODO no overlap
-			ranY=Math.floor(Math.random() * 95) + 0;
-			ranX=Math.floor(Math.random() * 95) + 0;
+			ranY= random(0,95);
+			ranX=random(0,95);
 		//randomly selects between two sets of items
 			if (Math.random() >= 0.5)
 				img.src="images/items/item_"+itemArr[index]+".png";
@@ -108,12 +112,12 @@ function camoItems(img){
 }
 function rotateItem(){
 	var rotVal=[0,0,0,45,90,135,180,225,270];
-	var index=Math.floor(Math.random() * rotVal.length);
+	var index=random(0, rotVal.length);
 	return rotVal[index];
 	}
 function resizeItem(){
 	var sizeVal=[80,90,100,100,110,125,135,145];
-	var index=Math.floor(Math.random() * sizeVal.length);
+	var index=random(0, sizeVal.length);
 	return sizeVal[index];
 	}
 
