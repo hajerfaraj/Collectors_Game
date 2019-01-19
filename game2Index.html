@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style/gameStyle.css">
+    <link rel="stylesheet" type="text/css" href="style/popUpStyle.css">
+    <link rel="stylesheet" type="text/css" href="style/game2Style.css">
+    <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
+    <script src="script/jquery-3.3.1.min.js"></script>
+</head>
+<body onload="init();">
+    <div id="content">
+    <div id="loaderBg">
+        <div id="loader"></div>
+        <p>Loading...</p>
+    </div>
+    <div id="startScreen" class="start">
+        <button id="startButton" class="start" onclick="play()">START</button>
+    </div>
+    <ul id="itemList"></ul>
+    <img id="timer" class="gameControls" src="images/decoration/timer.png"/>
+    <img id="restartSign" src="images/decoration/reset.png"/>
+    <img id="basket" src="images/items/basket.png" style="position: absolute; bottom:0;height:100px;width:125px;"/>
+    <div id="timerDisplay" class="gameControls">01:00</div>
+    <button id="restartBtn" class="gameControls" onclick="restartButton();">&#8635;</button>
+    <button id="pauseBtn" class="gameControls" onClick="pause();">||</button>
+    <div id="stuff"></div>
+    <div class="popup" id="winDialogue">
+        <p>You Won!<br/>Your score is:<br/><span id="score"></span><br/>Thank you for playing!!</p>
+        <!--<button id="log">Login</button> or <button id="reg">Register</button>-->
+        <span class="close">
+            <i class="fa fa-close"></i>
+        </span>
+        <br/>This was a demo game run.
+    </div>
+    </div>
+    <!--game logic must preceed game script-->
+    <script type="text/javascript" src="script/popUpScript.js"></script>
+    <script type="text/javascript" src="script/gameLogic.js"></script>
+    <script type="text/javascript" src="script/gameScript.js"></script>
+    <script type="text/javascript" src="script/game2Script.js"></script>
+    <script type="text/javascript" src="script/game2Logic.js"></script>
+</body>
+</html>
