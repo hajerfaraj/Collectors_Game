@@ -1,5 +1,6 @@
 //allow game to be played
 function play(){
+    //remove play screen and disable mouse until timer starts
     var start=document.getElementById('startScreen');
     start.style="display:none";
     start=document.getElementById('startButton');
@@ -60,6 +61,7 @@ function restartButton(){
     document.getElementById('timerDisplay').innerHTML="00:00";
     document.getElementById("winDialogue").style.display="none";
     $('body').css('pointer-events', 'auto');
+    $('.hint').css({"filter":"none","pointer-events": "auto"});
     clearInterval(watch);
     timer(0,0);
     init();
@@ -80,20 +82,19 @@ function winCheck(){
 //display won screen, TODO: check if user is logged in
 function won(){
     clearInterval(watch);
-    alert("won");
     wonDialogue();
-    var timeText=document.getElementById("timerDisplay").innerHTML;alert(timeText);
+    var timeText=document.getElementById("timerDisplay").innerHTML;
     var showTime=document.getElementById("totTime").innerHTML=timeText;
     $('body').css('pointer-events', 'none');
     $('#winDialogue').css('pointer-events', 'auto');
+    $('#pauseBtn').css('pointer-events', 'none');
     $('#restartBtn').css('pointer-events', 'auto');
 }
 var onOff=true;
-//$("#content").focusin(onOff=true,pause());
-//$("#content").focusout(onOff=false,pause());
 function pause(){
     var str;
     if (onOff){
+        //disable mouse on all but buttons
         onOff=false;
         clearInterval(watch);
         $('body').css('pointer-events', 'none');
@@ -101,6 +102,7 @@ function pause(){
         $('#restartBtn').css('pointer-events', 'auto');
     }
     else{
+        //restore mouse and resume timer
         onOff=true;
         $('body').css('pointer-events', 'auto');
         str=document.getElementById('timerDisplay').innerHTML;
@@ -116,11 +118,13 @@ function penalty(){
     else{
         clicks=0;
         clearInterval(watch);
+        //flash red as warning
         $("#foreGround").css('background-color','rgba(255,0,0,0.3)');
         setTimeout(function() {$("#foreGround").css('background-color','rgba(0,0,0,0)');}, 30);
         var str=document.getElementById("timerDisplay").innerHTML;
         var seconds=parseInt(str[3]+str[4]);
         var minutes=parseInt(str[0]+str[1]);
+        //increment timer by 3seconds
         seconds+=3;
         if (seconds >= 60) {
             seconds = 0;
@@ -131,3 +135,24 @@ function penalty(){
         timer(str[3]+str[4],str[0]+str[1]);
     }
 }
+$(".hint").click(function(e){
+    var name, liText;
+    index=random(0,$('.item').length);
+    //find random object and compare if it has been found (struck out)
+    for (var j=0;j<$('li').length;j++){
+        name=$( ".item:nth-child("+index+")" ).attr("src");
+        liText=$( "li:nth-child("+(j+1)+")");
+            if ( name.indexOf( liText.text() ) > -1 ) {  
+                if ( liText.css("text-decoration")=="line-through" ) {
+                   index=random(0,$('.item').length);
+                   j=0; 
+                }
+                else{
+                    break;
+                }
+            }  
+    }
+    //trigger found function and disable 1 hint
+    $( ".item:nth-child("+index+")" ).trigger("click");
+    $(e.target).css({"filter":"invert(30%)","pointer-events": "none"});
+});

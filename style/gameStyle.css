@@ -288,3 +288,28 @@ li img{
 	box-shadow: 1px 1px 5px 4px rgb(50,10,50) inset,-4px -4px 1px 3px black inset;
 	transform: translateX(2px);
 }
+#hintBox{
+	padding: 5px 12px 5px 12px;
+	position: absolute;
+	left: 7%;
+	top: 1%;
+	max-height:15%;
+	max-width:25%;
+	font-size:30px;
+	font-size:15px;
+	text-align: center;
+  	z-index:10;
+  	background-color: rgba(25,10,25,0.5);
+ 	 border-radius: 40%;
+}
+#hintBox img{
+	padding-left: 5px;
+	padding-right: 5px;
+	height:40px; 
+	width: 40px;
+	display:inline-block;
+	z-index:10;
+}
+#hintBox img:hover{
+	transform: rotate(5deg);
+}
