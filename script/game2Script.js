@@ -1,23 +1,24 @@
+//generate stage
 function init(){
     buildImage();
 	antiItems();
 	$(document).ready(function(){
 		$(window).load(load());
-    });
+	});
 }
 function buildImage() {
 	  index= random(1,11);
 	  var con=document.getElementById('content');
       con.style.backgroundImage="url(images/backgrounds/bg"+index+".jpg)";
-    }
-function buildRoom() {}
-function buildItems() {}
+}
+//tie cursor to basket
 $(document).ready(function(){
     $(document).mousemove(function(e){
         $("#content").css('cursor', 'none');
         $("#basket").css({left:e.pageX});
     });
 });
+//animate ripple effect where mouse clicked
 $('body').append($('<span class="ripple"></span>'));
 $("#content").on('click', function(e){
   var xPos = e.clientX,
@@ -27,14 +28,14 @@ $("#content").on('click', function(e){
     left: xPos-30
   }).addClass('active');
 });
+//remove after animation finished
 $(".ripple").on('animationend webkitAnimationEnd oAnimationEnd oanimationend MSAnimationEnd', 
 function() {
  $('.ripple').removeClass('active');
 }); 
+var speed;
 function buildItems() {
-		var img= $("<img />")  ,s;
-		
-			
+		var img= $("<img />"), s;
 		// Add image source
 		index=random(0, itemArr.length);
 		if (Math.random() >= 0.5)
@@ -52,16 +53,19 @@ function buildItems() {
 		img.css({"position":"absolute",  "height": s+ "px", "width":s
 				 +"px","transform": "rotate("+rotateItem()+"deg)", "z-index":"7"});
     	// Get random animation interval
-    	var speed = random(5000, 10000);
-    	// Start animation
+		speed = random(5000, 10000);
+		img.addClass("item");
+		// Start animation
+		posCheck();
    		img.animate({"top": "430px"}, speed, "swing", buildItems);
 
 }
 function antiItems(){
-	//add main item 
+	//create and add items to be avoided 
 	var ul=document.getElementById('itemList'),
     img=document.createElement('img'),
-    li, name, list;
+	li, name, list;
+	//no repeat
     for (var i=0;i<3;i++){
 			index=random(0, itemArr.length);
 			list=ul.getElementsByTagName('li');
@@ -75,28 +79,19 @@ function antiItems(){
 				img.src="images/items/item_"+itemArr[index]+".png";
 			else
 				img.src="images/items/item_"+itemArr[index]+"2.png";
-	//node.addEventListener("click", function(){found(this)}, false);
-    //add item shadow to item pane
+    //add anti-item to item pane
     var node=img.cloneNode(),
 	li=document.createElement('li');
 	img.style="filter:contrast(100%) brightness(100%)!important;";
 	li.appendChild(img);
 	name=document.createElement('text');
-	name.innerHTML=itemArr[index];
+	name.innerHTML="<br/>"+itemArr[index];
 	li.appendChild(name);
 	node=li.cloneNode(li);
 	ul.appendChild(node);
 	}
 
 }
-function camoItems(img){
-	//add secondary item
-	var node=img.cloneNode(),
-	con=document.getElementById('stuff');
-	node.style.zIndex="6";
-	node.addEventListener("click",penalty,false);
-	con.appendChild(node);
-} 
 var watch;
 function timer(sec, min){
     var seconds = parseInt(sec), minutes = parseInt(min); 
@@ -113,6 +108,8 @@ function timer(sec, min){
             if((seconds==0)&&(minutes==0)){
                 clearInterval(watch);
                 alert("hi");
-                wonDialogue();}
+				wonDialogue();
+				$('.item').stop(true,false);
+			}
     }, 1000);  
 }

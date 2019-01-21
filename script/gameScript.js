@@ -90,6 +90,7 @@ function createItems(img){
 	ul=document.getElementById('itemList'),
 	li, name;
 	node.addEventListener("click", function(){found(this)}, false);
+	node.classList.add("item");
 	con.appendChild(node);
 	//add item shadow to item pane
 	li=document.createElement('li');
@@ -103,7 +104,7 @@ function createItems(img){
 
 }
 function camoItems(img){
-	//add secondary item
+	//add secondary itemس
 	var node=img.cloneNode(),
 	con=document.getElementById('stuff');
 	node.style.zIndex="6";
