@@ -7,7 +7,8 @@ background-size: cover;
 background-repeat: no-repeat;
 }
 
-nav{
+.tnav{
+  background-color: black;
    position: fixed;
    padding: 10px 100px;
    top:0px;
@@ -15,13 +16,13 @@ nav{
     width: 100%;
     height:100px;
     box-sizing: border-box;
-    background-color: black;
+    
    opacity: 0.9;
      
     
     
 }
-  nav ul{
+  .tul{
     list-style: none;
      float:right;
       padding: 0;
@@ -29,7 +30,7 @@ nav{
       margin: 0;
   }
  
-nav ul li{
+.tlist{
        list-style: none;
 }
   #log{
@@ -39,7 +40,7 @@ nav ul li{
 
 }
  
-  #list a{
+  .tlist a{
   line-height: 80px;
   list-style: none;
  color: white;
@@ -47,29 +48,10 @@ nav ul li{
  text-transform: uppercase;
  text-decoration: none;
     }
-.content:focus{
+a:focus{
 
   outline: none;
 }
-#title{
-  font-size: 50px;
-  text-shadow: orangered;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #title{
 float: left;
