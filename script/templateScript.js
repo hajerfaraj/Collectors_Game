@@ -1,5 +1,5 @@
 $("document").ready(function(){
-$("body").append("<div class='tdiv'></div>");
+$("body").prepend("<div class='tdiv'></div>");
 $("div.tdiv").append("<nav class='tnav'></nav>");
 $("nav.tnav").append("<a id='title' href='#'>Collectors</a>");
 $("nav.tnav").append("<ul class='tul'></ul>");
