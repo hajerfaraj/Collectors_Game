@@ -1,0 +1,252 @@
+body, html {
+	font-family: 'Open Sans', sans-serif;
+	text-rendering: optimizeLegibility ;
+	-webkit-font-smoothing: antialiased ;
+	color: #333;
+}
+
+h1 strong {
+	font-weight: 900;
+}
+h2 {
+	text-transform: uppercase;
+	line-height: 20px;
+	margin: 0;
+}
+h3 {
+	font-size: 16px;
+	font-weight: 600;
+}
+h4 {
+	text-transform: uppercase;
+}
+h5 {
+	text-transform: uppercase;
+	font-weight: 700;
+	line-height: 20px;
+}
+p {
+	font-family: 'Open Sans', sans-serif;
+	color: #888;
+	line-height: 24px;
+}
+
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+.clearfix {
+	display: inline-block;
+}
+* html .clearfix {
+	height: 1%;
+}
+.clearfix {
+	display: block;
+}
+
+
+/* Navigation */
+
+
+/* Home Style */
+
+header {
+	
+	background-size: cover;
+	background-color:rgba(192, 192, 192, 0.692);
+    color: #cfcfcf;
+	position: relative;
+	height: 100%;
+}
+#headpos{
+	margin-top:100px;
+}
+ #headerpar {
+	color: #222;
+	font-size: 18px;
+	margin-bottom: 60px;
+	display: inline-block;
+	background-color:silver;
+	padding: 0 4px;
+	border-radius : 2px;
+}
+.intro-text {
+	position: relative;
+	padding-top: 250px;
+	padding-right: 0;
+	padding-left: 0px;
+	padding-bottom: 170px;
+	
+}
+.intro-text H1 {
+	font-size: 60px;
+	text-transform: uppercase;
+	color:black;
+	font-weight: 300;
+}
+
+.btn-default {
+	color: #333;
+	font-family: 'Open Sans', sans-serif;
+	background-color: rgba(255,255,255,0.8);
+	border: 0;
+	margin: 0 8px;
+	font-size: 18px;
+	transition: all 0.5s;
+}
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active {
+	background-color:orangered;
+	color: #fff;
+}
+
+/* Team Section */
+#team-section {
+	padding: 100px 0;
+	background-color:rgba(192, 192, 192, 0.692);
+}
+.section-title.center {
+	padding: 30px 0;
+}
+.section-title h2, .section-title.center h2 {
+	font-size: 40px;
+	font-weight: 300;
+	margin-bottom: 20px;
+	color: black;
+}
+.section-title hr {
+	height: 2px;
+	width: 50%;
+	float: left;
+	position: relative;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e3e5e5+0,ffffff+100&amp;1+0,0+100 */
+	background: -moz-linear-gradient(left, rgba(227,229,229,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(227,229,229,1)), color-stop(100%, rgba(255,255,255,0))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, rgba(227,229,229,1) 0%, rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, rgba(227,229,229,1) 0%, rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, rgba(227,229,229,1) 0%, rgba(255,255,255,0) 100%); /* IE10+ */
+	background: linear-gradient(to right, rgba(227,229,229,1) 0%, rgba(255,255,255,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3e5e5', endColorstr='#00ffffff', GradientType=1 ); /* IE6-9 */
+	border: 0;
+	margin-bottom: 50px;
+}
+#team-section .item {
+	padding: 0;
+	margin: 15px;
+}
+img.img-circle.team-img {
+	width: 120px;
+	height: 120px;
+	border: 0;
+	transition: all 0.5s;
+	margin: 0;
+	box-shadow: -3px -3px orangered;
+}
+#team-section .thumbnail {
+	background: transparent;
+	border: 0;
+}
+#team-section .thumbnail .caption {
+	padding: 9px;
+}
+
+
+/* about the game Section */
+#game-section {
+	padding: 100px 0;
+	background-color: #eff1f1 ;
+}
+#game-section h2 {
+	color:  black;
+}
+
+
+/* Contact Section */
+#contact-section {
+	padding: 100px 0;
+	background-color: #eff1f1 ;
+}
+#contact-section h3 {
+	font-size: 20px;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+#contact-section form {
+	padding: 30px 0;
+}
+
+
+label {
+	font-size: 12px;
+	font-weight: 400;
+	font-family: 'Open Sans', sans-serif;
+	float: left;
+}
+#contact-section .form-control {
+	display: block;
+	width: 100%;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	-webkit-transition: none;
+	-o-transition: none;
+	transition: none;
+}
+#contact-section .form-control:focus {
+	border-color: inherit;
+	outline: 0;
+	-webkit-box-shadow: transparent;
+	box-shadow: transparent;
+}
+#contact-section .btn {
+	background: #fbfbfb;
+	border: 2px solid #fff;
+	border-radius: 4px;
+	padding: 10px 20px;
+	margin-top: 20px;
+	color: #aaa;
+	font-size: 16px;
+}
+#contact-section .btn:hover, #contact-section .btn:focus {
+	background: orangered;
+	border: 2px solid none;
+	color: #fff;
+}
+#contact-section .text-danger {
+	color: orangered;
+	text-align: left;
+}
+.btn:active, .btn.active {
+	background-image: none;
+	outline: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus {
+	outline: none;
+	outline-offset: none;
+}
+
+/* Footer */
+#footer {
+	background-color: black;
+	color: #ddd;
+	padding: 15px 0 10px 0;
+}
+#footer p {
+	font-size: 13px;
+	margin-top: 10px;
+	color: #666;
+}
