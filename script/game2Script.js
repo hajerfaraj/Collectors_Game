@@ -14,7 +14,7 @@ function buildImage() {
 //tie cursor to basket
 $(document).ready(function(){
     $(document).mousemove(function(e){
-        $("#content").css('cursor', 'none');
+        /*$("#content").css('cursor', 'none');*/
         $("#basket").css({left:e.pageX});
     });
 });
@@ -24,8 +24,8 @@ $("#content").on('click', function(e){
   var xPos = e.clientX,
       yPos = e.clientY;
   $('.ripple').css({
-    top: yPos-30,
-    left: xPos-30
+    top: yPos-2,
+    left: xPos-2
   }).addClass('active');
 });
 //remove after animation finished
@@ -39,25 +39,25 @@ function buildItems() {
 		// Add image source
 		index=random(0, itemArr.length);
 		if (Math.random() >= 0.5)
-				img.attr("src","images/items/item_"+itemArr[index]+".png" );
-			else
-				img.attr("src","images/items/item_"+itemArr[index]+"2.png" );
+			img.attr("src","images/items/item_"+itemArr[index]+".png" );
+		else
+			img.attr("src","images/items/item_"+itemArr[index]+"2.png" );
 
   		// Add item to the screen
   		$("#stuff").append(img);
  		 // Generate random number for x position
 		var xPos = random(0, $("#stuff").width());
-  		img.css("left", xPos + "px");
 		img.css("top", "-100px");
 		s=resizeItem();
-		img.css({"position":"absolute",  "height": s+ "px", "width":s
-				 +"px","transform": "rotate("+rotateItem()+"deg)", "z-index":"7"});
+		img.css({"height": s+ "px", "width":s +"px","transform": "rotate("
+			+rotateItem()+"deg)", "z-index":"7"});
+		img.css("left", xPos + "px");
     	// Get random animation interval
-		speed = random(5000, 10000);
+		speed = random(5000, 7000);
 		img.addClass("item");
 		// Start animation
-		posCheck();
-   		img.animate({"top": "430px"}, speed, "swing", buildItems);
+		
+   		img.animate({"top": "430px"}, speed, "linear", function(){posCheck(this)});
 
 }
 function antiItems(){
@@ -70,7 +70,7 @@ function antiItems(){
 			index=random(0, itemArr.length);
 			list=ul.getElementsByTagName('li');
 			for (var j=0;j<list.length; j++){
-				if (list[j].innerText==itemArr[index]){
+				if (list[j].innerText.trim()==itemArr[index]){
 					index=random(0, itemArr.length); 
 					j=-1;
 				}
@@ -83,6 +83,8 @@ function antiItems(){
     var node=img.cloneNode(),
 	li=document.createElement('li');
 	img.style="filter:contrast(100%) brightness(100%)!important;";
+	$(img).addClass(".red");
+	$(img).toggle('.red');
 	li.appendChild(img);
 	name=document.createElement('text');
 	name.innerHTML="<br/>"+itemArr[index];

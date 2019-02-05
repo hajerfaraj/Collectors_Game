@@ -1,22 +1,22 @@
 body{
-margin: px;
+margin: 0px;
 padding: 0px;
 font-family: quicksand;
-background-image: url("pg.jpg");
+background-image: url("../images/pg.jpg");
 background-size: cover;
 background-repeat: no-repeat;
 }
 
 .tnav{
   background-color: black;
-   position: fixed;
+   position: relative;
    padding: 10px 100px;
    top:0px;
    left: 0px;
     width: 100%;
     height:100px;
     box-sizing: border-box;
-    
+    display:block;
    opacity: 0.9;
      
     
